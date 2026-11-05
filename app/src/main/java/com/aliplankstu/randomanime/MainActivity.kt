@@ -108,12 +108,16 @@ fun RandomAnimeApp() {
                             Row(horizontalArrangement = Arrangement.spacedBy(7.dp)) {
                                 for (col in 0..3) {
                                     val index = row * 4 + col
-                                    FilterChip(
-                                        selected = month == index,
-                                        onClick = { month = index; result = null },
-                                        label = { Text(labels[index], fontSize = 12.sp) },
-                                        modifier = Modifier.weight(1f)
-                                    )
+                                    if (index < labels.size) {
+                                        FilterChip(
+                                            selected = month == index,
+                                            onClick = { month = index; result = null },
+                                            label = { Text(labels[index], fontSize = 12.sp) },
+                                            modifier = Modifier.weight(1f)
+                                        )
+                                    } else {
+                                        Spacer(Modifier.weight(1f))
+                                    }
                                 }
                             }
                         }
