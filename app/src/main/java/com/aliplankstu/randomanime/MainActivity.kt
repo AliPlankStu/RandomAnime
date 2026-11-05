@@ -3,6 +3,8 @@ package com.aliplankstu.randomanime
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -65,10 +67,11 @@ fun RandomAnimeApp() {
             ) {
                 item {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Surface(color = Violet, shape = RoundedCornerShape(15.dp)) {
-                            Icon(Icons.Default.AutoAwesome, null, tint = Color.White,
-                                modifier = Modifier.padding(12.dp).size(26.dp))
-                        }
+                        Image(
+                            painter = painterResource(R.drawable.app_icon),
+                            contentDescription = "随机番名头像",
+                            modifier = Modifier.size(54.dp).clip(RoundedCornerShape(15.dp))
+                        )
                         Spacer(Modifier.width(12.dp))
                         Column {
                             Text("随机番名", fontSize = 27.sp, fontWeight = FontWeight.Bold, color = Ink)
